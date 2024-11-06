@@ -1,7 +1,7 @@
 :root {
     --font-color: #fdfdfde1;
-    --secondary-color: #f04980d8;
-    --accent-color:rgb(168, 34, 67);
+    --secondary-color: #9fda32d8;
+    --accent-color:rgba(74, 87, 15, 0.836);
     --background-color:rgba(255, 255, 255, 0.116);
     --box-shadow: 0 6px 8px rgba(255, 255, 255, 0.589);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -10,7 +10,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #050505ee;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

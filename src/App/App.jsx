@@ -1,69 +1,37 @@
 import css from '../App/App.module.css';
 
+import { Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
 import { Toaster } from 'react-hot-toast';
 
-import { useState, useEffect } from 'react';
-import { useSelector,useDispatch } from 'react-redux';
-import selectModule from '../redux/contacts/selectorsContacts';
-import thunkModule from '../redux/contacts/contactsSlice';
-
-
-import Section from '../components/Section/Section';
-import SearchBox from '../components/SearchBox/SearchBox';
-import ContactList from '../components/ContactList/ContactList';
-import AddModal from '../components/Modal/Modal';
-import AddUser from '../components/AddUser/AddUser';
-import Loader from '../components/Loader/Loader';
-import NotFound from '../components/NotFound/NotFound'
+const Navigation = lazy(() => import("../components/Navigation/Navigation"));
+const Section = lazy(() => import("../components/Section/Section"));
+const Loader = lazy(() => import("../components/Loader/Loader"));
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
+const  RegistrationPage = lazy(() => import("../pages/RegistrationPage/RegistrationPage"));
+const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
 
 
 export default function App() {
-  const dispatch = useDispatch();
-  const { apiGetContacts } = thunkModule;
-  const { error } = selectModule;
-  const { isLoading } = selectModule;
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const isLoad = useSelector(isLoading);
-  const isError = useSelector(error);
 
-  useEffect(() => {
-    dispatch(apiGetContacts());
-  }, [dispatch]);
-
-    function openModal() {
-      setModalIsOpen(true);
-  }
-
-  function closeModal() {
-    setModalIsOpen(false);
-  }
-
-    useEffect(() => {
-  if (modalIsOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'auto';
-  }
-  return () => {
-    document.body.style.overflow = 'auto';
-  };
-  }, [modalIsOpen]);
   return (
     <>
-      <header className={css.header}>
-        <SearchBox />
-        <AddUser isOpen={openModal} />
-      </header>
-      <Section title={"Phone Book"}>
-       {isLoad && <Loader />} 
-        <ContactList />
-        {isError&&<NotFound/>}
+      <header className={css.header}></header>
+      <Section>
+        <Suspense>
+          <Routes>
+           <Route path="/" element={<HomePage/>} />
+           <Route path="/contacts" element={<ContactsPage/>} />
+           <Route path="/register" element={<RegistrationPage />}/>
+           <Route path="/login" element={<LoginPage/>}/>
+  	       <Route path="*" element={<NotFoundPage />} />
+         </Routes>
+        </Suspense>
       </Section>
-      <AddModal
-        onRequestClose={closeModal}
-        isOpen={modalIsOpen}
-      />
       <Toaster
         position="bottom-right"
         reverseOrder={false}

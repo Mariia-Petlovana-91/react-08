@@ -2,7 +2,7 @@ import css from './ContactForm.module.css';
 import schemaValidate from '../../utils/validataSchema';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch} from 'react-redux';
-import contactsModule from '../../redux/contacts/contactsSlice';
+import contactsModule from '../../redux/contacts/slice';
 
 export default function ContactForm({ setModalIsOpen }) {
 	

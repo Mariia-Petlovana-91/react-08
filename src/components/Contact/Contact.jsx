@@ -3,7 +3,7 @@ import { GrUserManager } from "react-icons/gr";
 import { FaPhone } from "react-icons/fa6";
 import iconSize from '../../utils/iconSize';
 import { useDispatch } from 'react-redux';
-import thunkModule from '../../redux/contacts/contactsSlice';
+import thunkModule from '../../redux/contacts/slice';
 
 export default function Contact({ name = "Ім'я відсутнє", number = "Номер відсутній", id }) {
 	const { apiDeleteContacts } = thunkModule;

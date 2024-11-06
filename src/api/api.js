@@ -1,9 +1,9 @@
 import axios from "axios";
-import  API_KEY  from "./apiKey";
+// import  API_KEY  from "./apiKey";
 
 
 const contactsInstance = axios.create({
-	baseURL: `https://${API_KEY}`
+	baseURL: 'https://connections-api.goit.global/'
 })
 
 
@@ -19,7 +19,7 @@ async function getContacts() {
 
 async function postContact(contact) {
     try {
-	    const response = await contactsInstance.post('/contacts',contact);
+	    const response = await contactsInstance.post('/contacts');
         return response.data;
     } catch (error) {
         throw error;

@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import selectedContact from "./selectorsContacts";
-import selectFilter from "../filters/selectorsFilter";
-import apiModule from "../contactsOps";
+import selectedContact from "./selectors";
+import selectFilter from "../filters/selectors";
+import apiModule from "../contacts/operations";
 
 const {
 	apiGetContacts,
