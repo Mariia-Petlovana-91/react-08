@@ -8,13 +8,13 @@ const contactsInstance = axios.create({
 
 
 async function getContacts() {
-      try {
-          const response = await contactsInstance.get('/contacts');
-          return response.data;
+    //   try {
+    //       const response = await contactsInstance.get('/contacts');
+    //       return response.data;
           
-      } catch (error) {
-          throw error;
-      }
+    //   } catch (error) {
+    //       throw error;
+    //   }
 }
 
 async function postContact(contact) {
