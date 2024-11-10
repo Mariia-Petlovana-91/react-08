@@ -1,8 +1,8 @@
 :root {
     --font-color: #fdfdfde1;
-    --secondary-color: #9fda32d8;
-    --accent-color:rgba(74, 87, 15, 0.836);
-    --background-color:rgba(255, 255, 255, 0.116);
+    --secondary-color: #aaec2dea;
+    --accent-color: #77ad12ea;
+    --background-color:#050505;
     --box-shadow: 0 6px 8px rgba(255, 255, 255, 0.589);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -107,3 +107,6 @@ img {
 .input:focus {
   box-shadow: var(--box-shadow);
 }
+
+
+

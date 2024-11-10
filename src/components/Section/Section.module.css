@@ -1,13 +1,4 @@
 .section{
-	padding: 24px 40px 20px 40px;
-}
-
-.section__title{
-	margin-bottom: 24px;
-	font-family: inherit;
-	font-size: 32px;
-	font-weight: 600;
-	line-height: 32px;
-	letter-spacing: 0.04em;
+	padding: 40px;
 }
 

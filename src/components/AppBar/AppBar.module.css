@@ -1,0 +1,32 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 40px;
+	background-color: var(--background-color);
+	border-bottom: 1px solid var(--accent-color);
+}
+
+.link {
+	font-size: 24px;
+	font-weight: 600;
+	margin-right: 20px;
+	outline: transparent;
+	color: var(--accent-color);
+	transition: color 0.3s linear;
+}
+
+.active {
+
+	color: var(--secondary-color);
+	border-bottom: 1px solid var(--secondary-color);
+}
+
+.link:last-child {
+	margin-right: 0px;
+}
+
+.link:hover,
+.link:focus {
+	color: var(--secondary-color);
+}

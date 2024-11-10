@@ -1,0 +1,38 @@
+.userMenu{
+	display: flex;
+	align-items: center;
+}
+
+.userName{}
+
+.icon{
+	fill: var(--accent-color);
+	color: var(--accent-color);
+	margin-right: 15px;
+}
+
+.icon:last-child{
+	margin-right: 0px;
+}
+
+.text{
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 15px;
+}
+
+.btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	padding: 2px;
+	transition: border-color 0.3s linear;
+}
+
+.btn:hover,
+.btn:focus{
+	border: 1px solid var(--accent-color);
+}
