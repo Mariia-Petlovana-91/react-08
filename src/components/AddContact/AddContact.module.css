@@ -1,0 +1,20 @@
+.userBtn {
+	margin-left: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	padding: 2px;
+	transition: border-color 0.3s linear;
+}
+
+.userBtn:hover,
+.userBtn:focus {
+	border: 1px solid var(--accent-color);
+}
+
+.userIcon {
+	fill: var(--accent-color);
+}

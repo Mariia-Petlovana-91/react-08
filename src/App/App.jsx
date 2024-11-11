@@ -15,7 +15,7 @@ import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import ContactsPage from "../pages/ContactsPage/ContactsPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
-const isAuthenticated = true;
+const isAuthenticated = false;
 
 export default function App() {
   return (

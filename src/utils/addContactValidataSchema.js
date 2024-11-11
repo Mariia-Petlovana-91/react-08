@@ -3,7 +3,7 @@ import * as Yup from "yup";
 
 const phonePattern = /^\d{3}-\d{3}-\d{4}$/
 	
-const schemaValidate = Yup.object({
+const addContactValidataSchema = Yup.object({
 	name: Yup.string()
 		.min(2, "Name має містити більше двох символів")
 		.max(15, "Name має містити менше 15 символів")
@@ -13,4 +13,4 @@ const schemaValidate = Yup.object({
 		.matches(phonePattern, "Неправильний номер.Введіть номер у форматі 000-000-0000"),
 });
 
-export default schemaValidate;
+export default addContactValidataSchema;

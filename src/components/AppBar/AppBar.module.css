@@ -4,7 +4,6 @@
 	justify-content: space-between;
 	padding: 40px;
 	background-color: var(--background-color);
-	border-bottom: 1px solid var(--accent-color);
 }
 
 .link {
@@ -18,8 +17,8 @@
 
 .active {
 
-	color: var(--secondary-color);
-	border-bottom: 1px solid var(--secondary-color);
+	color: var(--font-color);
+	border-bottom: 1px solid var(--font-color);
 }
 
 .link:last-child {
@@ -28,5 +27,5 @@
 
 .link:hover,
 .link:focus {
-	color: var(--secondary-color);
+	color: var(--font-color);
 }

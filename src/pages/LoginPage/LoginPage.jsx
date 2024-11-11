@@ -1,7 +1,14 @@
 import css from "../LoginPage/LoginPage.module.css";
 
-export default function LoginPage () {
+import Section from "../../components/Section/Section";
+import LoginForm from "../../components/LoginForm/LoginForm";
+
+
+export default function LoginPage() {
+
 	return (
-		<><h1>LoginPage</h1></>
+		<Section>
+			<LoginForm/>
+		</Section>
 	)
 }

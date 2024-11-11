@@ -3,8 +3,6 @@
 	align-items: center;
 }
 
-.userName{}
-
 .icon{
 	fill: var(--accent-color);
 	color: var(--accent-color);

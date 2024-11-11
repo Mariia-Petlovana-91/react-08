@@ -1,4 +1,4 @@
-import css from '../AddUser/AddUser.module.css';
+import css from './AddContact.module.css';
 import  iconSize  from '../../utils/iconSize';
 import { IoPersonAdd } from "react-icons/io5";
 
