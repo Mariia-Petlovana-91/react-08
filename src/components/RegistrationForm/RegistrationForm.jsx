@@ -25,7 +25,7 @@ export default function RegistrationForm() {
 
 	return (
 		<div className={clsx('container', 'block')}>
-			<img src="./../img/registration.jpg" alt="login photo" />
+			<img src="../../img/registration.jpg" alt="login photo" />
 			<Formik initialValues={INITIAL__VALUE}
 			onSubmit={onSubmit}
 			validationSchema={registrationValidateSchema}>
