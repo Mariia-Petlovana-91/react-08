@@ -1,3 +1,1 @@
-const selectFilter = (state) => state.filtersData.filters;
-
-export default selectFilter;
+export const selectFilter = (state) => state.filtersData.filters;

@@ -1,15 +1,12 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-import selectedContact from "./selectors";
-import selectFilter from "../filters/selectors";
+import { createSlice } from "@reduxjs/toolkit";
+
 import apiModule from "../contacts/operations";
 
 const {
 	apiGetContacts,
-	apiPostContacts,
-	apiDeleteContacts
+	apiPostContact,
+	apiDeleteContact
 } = apiModule;
-
-const { selectContact } = selectedContact;
 
 const INITIAL_STATE = {
 	contacts: null,
@@ -34,53 +31,39 @@ const contactsSlice = createSlice({
 			state.isLoading = false,
 			state.error = action.payload
 		 })
-			.addCase(apiPostContacts.pending, (state) => {
+			.addCase(apiPostContact.pending, (state) => {
 			state.isLoading = true,
 			state.error = null
 		})
-			.addCase(apiPostContacts.fulfilled, (state, action) => {
+			.addCase(apiPostContact.fulfilled, (state, action) => {
 				state.isLoading = false,
 				state.contacts.push(action.payload);
 		})
-		     .addCase(apiPostContacts.rejected, (state, action) => {
-			state.isLoading = false
+		     .addCase(apiPostContact.rejected, (state, action) => {
+			     state.isLoading = false
+			     state.error = action.payload;
 		})
-			.addCase(apiDeleteContacts.pending, (state) => {
-			state.isLoading = true,
-			state.error = null
+			.addCase(apiDeleteContact.pending, (state) => {
+			      state.isLoading = true,
+			      state.error = null
 		})
-			.addCase(apiDeleteContacts.fulfilled, (state, action) => {
+			.addCase(apiDeleteContact.fulfilled, (state, action) => {
                         state.isLoading = false;
-                        const index = state.contacts.findIndex(contact => contact.id === action.payload);
-                        if (index !== -1) {
-                          state.contacts.splice(index, 1);
-                        }
+				state.contacts = state.contacts.filter(contact => contact.id !== action.payload.id);
             })
-		.addCase(apiDeleteContacts.rejected, (state, action) => {
-			state.isLoading = false
+		     .addCase(apiDeleteContact.rejected, (state, action) => {
+			      state.isLoading = false,
+			      state.error= action.payload
 		})
 		
 	}
 });
-
-const selectFilteredContacts = createSelector(
-    [selectContact, selectFilter],
-    (contacts, filter) => {
-        if (Array.isArray(contacts)) {
-		return  contacts.filter((contact) =>
-            contact.name.toLowerCase().includes(filter.toLowerCase().trim())
-        );
-        }
-	    return;
-    }
-);
 
 const contactsReducer = contactsSlice.reducer;
 
 export default {
 	contactsReducer,
 	apiGetContacts,
-	apiPostContacts,
-	apiDeleteContacts,
-	selectFilteredContacts
+	apiPostContact,
+	apiDeleteContact
 }

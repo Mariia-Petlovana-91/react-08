@@ -63,7 +63,7 @@ const authSlice = createSlice({
 			state.isLoading = false,
 			state.isLoggedIn = false,
 			state.token = action.payload.token,
-			state.user = action.payload.user
+			state.user = action.payload
 		})
 		.addCase(apiLogOutUser.rejected, (state, action) => {
 			state.isLoading = false,

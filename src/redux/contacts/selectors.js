@@ -1,5 +1,19 @@
-const selectContact = (state) => state.contactsData.contacts;
-const isLoading = (state) => state.contactsData.isLoading;
-const error =(state) => state.contactsData.error;
+import { createSelector } from "@reduxjs/toolkit";
 
-export default{selectContact,isLoading,error} ;
+import { selectFilter } from "../filters/selectors";
+
+export const selectContact = (state) => state.contactsData.contacts;
+export const selectContactLoading = (state) => state.contactsData.isLoading;
+export const error = (state) => state.contactsData.error;
+export const selectFilteredContacts = createSelector(
+    [selectContact, selectFilter],
+    (contacts, filter) => {
+        if (Array.isArray(contacts)) {
+		return  contacts.filter((contact) =>
+            contact.name.toLowerCase().includes(filter.toLowerCase().trim())
+        );
+        }
+	    return;
+    }
+);
+

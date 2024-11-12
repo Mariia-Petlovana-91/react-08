@@ -4,10 +4,10 @@ import onActiveClass from "../../utils/onActiveClass";
 
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectLoading } from "../../redux/auth/selectors";
+import { selectLoggedIn } from "../../redux/auth/selectors";
 
 export default function Navigation() {
-	const selectedLoggedIn = useSelector(selectLoading);
+	const selectedLoggedIn = useSelector(selectLoggedIn);
 	return (
 		<div className={css.nav}>
                   <NavLink

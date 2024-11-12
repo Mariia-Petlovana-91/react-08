@@ -1,7 +1,7 @@
 import css from './SearchBox.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import filtersModule from '../../redux/filters/slice';
-import selectFilter from '../../redux/filters/selectors';
+import { selectFilter } from '../../redux/filters/selectors';
 
 export default function SearchBox() {
 
@@ -14,7 +14,7 @@ export default function SearchBox() {
       }
 	return (
 		<div className={css.search__box}>
-			<input className="input"
+			<input className={css.input}
 				type='text'
 				name='search'
 				value={selectNameFilter}

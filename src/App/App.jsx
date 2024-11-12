@@ -5,24 +5,25 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectLoading } from "../redux/auth/selectors";
+import { selectAuthLoading } from "../redux/auth/selectors";
+import { selectContactLoading } from '../redux/contacts/selectors';
 import apiModule from "../redux/auth/slice";
 
+const RestrictedRoute = lazy(() => import("../components/RestrictedRoute/RestrictedRoute"));
+const PrivateRoute = lazy(() => import("../components/PrivateRoute/PrivateRoute"));
+const Loader = lazy(() => import("../components/Loader/Loader"));
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
+const RegistrationPage = lazy(() => import("../pages/RegistrationPage/RegistrationPage"));
+const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
-
-import RestrictedRoute from '../components/RestrictedRoute/RestrictedRoute';
-import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
-import Layout from '../components/Layout/Layout';
-import Loader from "../components/Loader/Loader";
-import HomePage from "../pages/HomePage/HomePage";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
-import ContactsPage from "../pages/ContactsPage/ContactsPage";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import Layout from "../components/Layout/Layout";
 
 export default function App() {
   const dispatch = useDispatch();
-  const isLoad = useSelector(selectLoading);
+  const isLoadUser = useSelector(selectAuthLoading);
+  const isLoadContacts = useSelector(selectContactLoading);
 
   useEffect(() => {
     dispatch(apiModule.apiGetUser());
@@ -32,9 +33,8 @@ export default function App() {
   return (
     <>
       <Layout>
-        {isLoad&&<Loader/>}
-        
         <Suspense>
+          {isLoadContacts || isLoadUser? <Loader/> : null}
           <Routes>
             <Route path="/" element={<HomePage />} />
             

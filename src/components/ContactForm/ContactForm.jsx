@@ -1,15 +1,20 @@
 import css from './ContactForm.module.css';
-import addContactValidataSchema from "../../utils/addContactValidataSchema";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useDispatch} from 'react-redux';
 
-export default function ContactForm() {
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+
+import addContactValidataSchema from "../../utils/addContactValidataSchema";
+import apiModule from "../../redux/contacts/slice";
+
+export default function ContactForm({setModalIsOpen}) {
 	
 	const dispatch = useDispatch();
 	
 	
 	function onSubmit(data, actions) {
+		dispatch(apiModule.apiPostContact(data));
 		actions.resetForm();
+		setModalIsOpen();
 		return;
 	}
 

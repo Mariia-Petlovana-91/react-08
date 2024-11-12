@@ -1,14 +1,10 @@
-import css from '../RegistrationForm/RegistrationForm.module.css';
-import clsx from 'clsx';
-
-import registrationValidateSchema from "../../utils/registrationValidateSchema";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 
 import apiModule from "../../redux/auth/slice";
+import registrationValidateSchema from "../../utils/registrationValidateSchema";
 
 export default function RegistrationForm() {
-	
 	const dispatch = useDispatch();
 
 	function onSubmit(data, actions) {
@@ -24,17 +20,21 @@ export default function RegistrationForm() {
 	}
 
 	return (
-		<div className={clsx('container', 'block')}>
+		<div className='block'>
+			<div className='container'>
 			<img src="/img/registration.jpg" alt="login photo" />
 			<Formik initialValues={INITIAL__VALUE}
 			onSubmit={onSubmit}
 			validationSchema={registrationValidateSchema}>
-			<Form className="form">
+				<Form className="form"
+					autoComplete="off"
+				>
 				<label className="label">
 					<Field className="input"
 						type='text'
 						name='name'
 						placeholder=" "
+						autoComplete="off"
 					/>
 					<span className="descript">Name</span>
 					<ErrorMessage className="error"
@@ -48,6 +48,7 @@ export default function RegistrationForm() {
 						type='email'
 						name='email'
 						placeholder=" "
+						autoComplete="off"
 					/>
 					<span className="descript">Email</span>
 					<ErrorMessage className="error"
@@ -59,6 +60,7 @@ export default function RegistrationForm() {
 						type='password'
 						name='password'
 						placeholder=" "
+						autoComplete="off"
 					/>
 					<span className="descript">Password</span>
 					<ErrorMessage className="error"
@@ -68,6 +70,8 @@ export default function RegistrationForm() {
                         <button className='btn' type="submit">Sing Up</button>
 			</Form>
 		      </Formik>
+			</div>
+		
 		</div>
 
 	)

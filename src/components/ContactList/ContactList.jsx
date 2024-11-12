@@ -1,15 +1,15 @@
 import css from './ContactList.module.css';
+import clsx from 'clsx';
 import Contact from '../Contact/Contact';
 import { useSelector } from 'react-redux';
-import filterContactsModule from '../../redux/contacts/slice';
 
-const { selectFilteredContacts } = filterContactsModule;
+import { selectFilteredContacts} from "../../redux/contacts/selectors";
 
 export default function ContactList() {
     const filteredContacts = useSelector(selectFilteredContacts);
   
     return (
-        <ul className={css.contact__list}>
+        <ul className={clsx("block",css.contact__list)}>
             {Array.isArray(filteredContacts)&& filteredContacts.map((ar) => (
                 <li className={css.contact__item} key={ar.id}>
                     <Contact

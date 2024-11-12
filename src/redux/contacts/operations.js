@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 const {
 	getContacts,
-	postContact,
+	addContact,
 	deleteContact,
 } = api;
 
@@ -15,33 +15,33 @@ const apiGetContacts =createAsyncThunk(
 			const data = await getContacts();
 			return data;
 		} catch (error) {
-			toast.error(`No contacts found.😔 Try again later.📢${error.message}`);
+			toast.error("No contacts found.😔 Try again later.");
 			return thunkApi.rejectWithValue(error.message);
 		}
 	}
 );
 
-const apiPostContacts =createAsyncThunk(
+const apiPostContact =createAsyncThunk(
 	"contacts/addContact",
 	async (contactData, thunkApi) => {
 		try {
-			const data = await postContact(contactData);
+			const data = await addContact(contactData);
 			return data;
 		} catch (error) {
-			toast.error(`Failed to add contact.🤷‍♀️Try again later.📢${error.message}`);
+			toast.error(`Failed to add contact.🤷‍♀️Try again later.`);
 			return thunkApi.rejectWithValue(error.message);
 		}
 	}
 );
 
-const apiDeleteContacts =createAsyncThunk(
-	"contacts/deleteContact",
+const apiDeleteContact =createAsyncThunk(
+	"contact/deleteContact",
 	async (id, thunkApi) => {
 		try {
 			const data = await deleteContact(id);
 			return data;
 		} catch (error) {
-			toast.error(`Failed to delete contact.🙄Try again later.📢${error.message}`);
+			toast.error(`Failed to delete contact.🙄Try again later.${error}`);
 			return thunkApi.rejectWithValue(error.message);
 		}
 	}
@@ -51,6 +51,6 @@ const apiDeleteContacts =createAsyncThunk(
 
 export default {
 	apiGetContacts,
-	apiPostContacts,
-	apiDeleteContacts
+	apiPostContact,
+	apiDeleteContact
 } ;

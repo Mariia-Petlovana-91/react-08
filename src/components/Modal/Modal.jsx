@@ -6,23 +6,27 @@ import { IoCloseSharp } from "react-icons/io5";
 Modal.setAppElement('#root');
 import ContactForm from '../ContactForm/ContactForm';
 
+import iconSize from '../../utils/iconSize';
+
 export default function AddModal({ isOpen,
   onRequestClose }) {
   return (<>
     <Modal
       ariaHideApp={false}
-      className={clsx("block", css.modal)}
+      className={clsx(css.modal)}
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel="Item Details"
+      contentLabel="Add Contacts"
       overlayClassName={css.modalOverlay}
-    ><div className={css.modalCloseEl}>
+    ><div className={clsx("block", css.modalCloseEl)}>
         <button
           type='button'
           onClick={onRequestClose}
           className={css.modalCloseBtn}
         >
-          <IoCloseSharp className={css.icon} />
+          <IoCloseSharp className={css.icon}
+            size={iconSize.m}
+          />
         </button>
         <ContactForm setModalIsOpen={onRequestClose} />
       </div>

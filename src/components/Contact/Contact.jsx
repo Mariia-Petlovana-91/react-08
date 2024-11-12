@@ -1,15 +1,18 @@
 import css from '../Contact/Contact.module.css';
+import { RiDeleteBin2Line } from "react-icons/ri";
 import { GrUserManager } from "react-icons/gr";
-import { FaPhone } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa";
 import iconSize from '../../utils/iconSize';
 import { useDispatch } from 'react-redux';
+
+import apiModule from "../../redux/contacts/slice";
 
 export default function Contact({ name = "Ім'я відсутнє", number = "Номер відсутній", id }) {
 	const dispatch = useDispatch(); 
 	
 	return (
 		<>
-                  <div>
+			<div>
 				<h3 className={css.contact__name}>
 					<GrUserManager className={css.contact__icon}
 						size={iconSize.sm} />{name}
@@ -19,9 +22,12 @@ export default function Contact({ name = "Ім'я відсутнє", number = "�
 						size={iconSize.sm} />{number}
 				</p>
 			</div>
-			<button className='btn'
+			<button className={css.btn}
 				type='button'
-				onClick={() => dispatch(apiDeleteContacts(id))}>Delete
+				onClick={() => dispatch(apiModule.apiDeleteContact(id))}>
+				<RiDeleteBin2Line className={css.icon}
+				 size={iconSize.m}
+				/>
 			</button>
 		</>
 	)

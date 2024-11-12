@@ -1,6 +1,6 @@
 :root {
     --font-color: #fdfdfde1;
-    --secondary-color: #99d42ad7;
+    --secondary-color: #a1f10ce0;
     --accent-color: #689415f3;
     --background-color:#1d1b1b;
     --box-shadow: 0 6px 8px rgba(255, 255, 255, 0.589);
@@ -64,21 +64,14 @@ input{
 }
 
 .form {
-  margin: auto;
   padding: 40px;
   background-color: var(--background-color);
-  box-sizing: border-box;
-  overflow: hidden;
-  /* min-height: 400px;
-  min-width: 320px; */
 }
 
 .block {
-  padding: 5px;
   position: relative;
   width: auto;
   height: auto;
-  border-radius: 5px;
   background: var(--background-color);
   box-sizing: border-box;
 }
@@ -134,7 +127,6 @@ input{
 }
 
 .descript {
-  margin-bottom: 30px;
   position: absolute;
   top: 0px;
   font-family: inherit;
@@ -150,13 +142,13 @@ input{
   font-size: 24px;
   font-weight: 500;
   padding: 8px 10px;
-  background-color: var(--background-color);
+  background-color: transparent;
   border: none;
   border-bottom: 2px solid var(--accent-color);
   color: var(--font-color);
   width: 100%;
   outline: none;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .input:focus+.descript,
@@ -173,8 +165,7 @@ input{
 }
 
 .container {
-  padding: 2px;
-  background-color: var(--background-color);
+  background-color: transparent;
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr;
@@ -182,7 +173,6 @@ input{
   transform: translateY(100%);
   animation: slideUp 2s forwards;
   align-items: center;
-  margin-bottom: 20px;
   overflow: hidden;
 }
 
