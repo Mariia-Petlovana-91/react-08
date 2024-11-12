@@ -1,14 +1,17 @@
 import css from "../LoginForm/LoginForm.module.css";
-
+import clsx from "clsx";
 
 import logInValidateSchema from "../../utils/loginValidateSchema";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import apiModule from "../../redux/auth/slice";
 
 export default function LoginForm() {
 	const dispatch = useDispatch();
 
 	function onSubmit(data, actions) {
+		dispatch(apiModule.apiLoginUser(data));
 		actions.resetForm();
 		return;
 	}
@@ -20,6 +23,8 @@ export default function LoginForm() {
 	}
 
 	return (
+		<div className={clsx('container', 'block')}>
+		<img src="/src/img/login.jpg" alt="login photo" />
 		<Formik initialValues={INITIAL__VALUE}
 			onSubmit={onSubmit}
 			validationSchema={logInValidateSchema}>
@@ -31,7 +36,7 @@ export default function LoginForm() {
 						placeholder=" "
 					/>
 					<span className="descript">Email</span>
-					<ErrorMessage className={css.error}
+					<ErrorMessage className="error"
 						name='email'
 						component="span" />
 				</label>
@@ -42,13 +47,14 @@ export default function LoginForm() {
 						placeholder=" "
 					/>
 					<span className="descript">Password</span>
-					<ErrorMessage className={css.error}
+					<ErrorMessage className="error"
 						name='password'
 						component="span" />
 				</label>
-                        <button className='btn' type="submit">Sing Up</button>
+                        <button className='btn' type="submit">Log In</button>
 			</Form>
-
 		</Formik>
+		</div>
+
 	)
 }

@@ -1,44 +1,64 @@
 import axios from "axios";
-// import  API_KEY  from "./apiKey";
+
+const authInstance = axios.create({
+    baseURL: 'https://connections-api.goit.global/'
+});
 
 
-const contactsInstance = axios.create({
-	baseURL: 'https://connections-api.goit.global/'
-})
+function setToken(token) {
+    return authInstance.defaults.headers.common.Authorization = `Bearer ${token}`
+};
+function unSetToken() {
+    return authInstance.defaults.headers.common.Authorization = ''
+};
 
 
-async function getContacts() {
-    //   try {
-    //       const response = await contactsInstance.get('/contacts');
-    //       return response.data;
+async function registrationUser(formData) {
+      try {
+          const {data} = await authInstance.post(`/users/signup`, formData);
+          setToken(data.token);
+          return data;
           
-    //   } catch (error) {
-    //       throw error;
-    //   }
+      } catch (error) {
+          throw error;
+      }
 }
 
-async function postContact(contact) {
+async function logInUser(formData) {
+      try {
+          const { data } = await authInstance.post(`/users/login`, formData);
+           setToken(data.token);
+          return data;
+          
+      } catch (error) {
+          throw error;
+      }
+}
+
+async function logOutUser() {
+      try {
+          const { data } = await authInstance.post("/users/logout");
+          unSetToken();
+          return data;
+          
+      } catch (error) {
+          throw error;
+      }
+}
+
+async function getUser() {
     try {
-	    const response = await contactsInstance.post('/contacts');
-        return response.data;
-    } catch (error) {
-        throw error;
-    }
+        const {data} = await authInstance.get("/users/current");
+        return data;   
+      } catch (error) {
+          throw error;
+      }
 }
-
-
-async function deleteContact(id) {
-    try {
-        await contactsInstance.delete(`/contacts/${id}`);
-        return id;
-    } catch (error) {
-        throw error;
-    }
-}
-
 
 export default {
-    getContacts,
-    postContact,
-    deleteContact
+    registrationUser,
+    logInUser,
+    logOutUser,
+    getUser,
+    setToken
 };

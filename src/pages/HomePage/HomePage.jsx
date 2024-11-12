@@ -1,5 +1,5 @@
 import css from "../HomePage/HomePage.module.css";
-
+import clsx from "clsx";
 
 import iconSize from "../../utils/iconSize";
 import { FaPhone } from "react-icons/fa";
@@ -12,19 +12,26 @@ export default function HomePage () {
 	return (
 		<>
 			<Section>
-				<div className={css.block}>
+				<div className={clsx('block', css.block)}>
 					<h1 className={css.title}>
 					     <span className={css.titleLetter}>Ph</span>one
-					     <span className={css.titleLetterB}>B</span>ook
+						<span className={css.titleLetterB}>B</span>ook
+						<FaPhone
+							className={css.icon}
+						      size={iconSize.m}
+					      />
 					</h1>
-					<p className={css.textHero}>
-						Web application
-					      for saving and managing contacts.
-						Users can add, edit, delete and
-						search contacts in a user-friendly interface.
-					</p>
-					<div className={css.container}>
-						<ul className={css.descriptList}>
+					<div >
+						<div className="container">
+                                     <p className={css.textHero}>
+						 Web application
+					       for saving and managing contacts.
+						 Users can add, edit, delete and
+						 search contacts in a user-friendly interface.
+						</p>
+						<img className={css.img} src="/src/img/phone.jpg" alt="phone photo" />
+						</div>
+					       <ul className={css.descriptList}>
 							<li className={css.descriptItem}>	
 								<h2 className={css.descriptTitle}>
 									<SiBasicattentiontoken 
@@ -122,11 +129,9 @@ export default function HomePage () {
 									</li>
 								</ul>
 							</li>
-						</ul>
-						<FaPhone
-							className={css.icon}
-						      size={iconSize.xxxl}
-					       />
+					       </ul>
+						
+						
 					</div>
 				</div>
 			</Section>

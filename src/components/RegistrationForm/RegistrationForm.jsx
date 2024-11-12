@@ -1,12 +1,19 @@
 import css from '../RegistrationForm/RegistrationForm.module.css';
+import clsx from 'clsx';
+
 import registrationValidateSchema from "../../utils/registrationValidateSchema";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import apiModule from "../../redux/auth/slice";
 
 export default function RegistrationForm() {
+	
 	const dispatch = useDispatch();
 
 	function onSubmit(data, actions) {
+		console.log(data);
+		dispatch(apiModule.apiRegistrationUser(data));
 		actions.resetForm();
 		return;
 	}
@@ -18,7 +25,9 @@ export default function RegistrationForm() {
 	}
 
 	return (
-		<Formik initialValues={INITIAL__VALUE}
+		<div className={clsx('container', 'block')}>
+			<img src="/src/img/registration.jpg" alt="login photo" />
+			<Formik initialValues={INITIAL__VALUE}
 			onSubmit={onSubmit}
 			validationSchema={registrationValidateSchema}>
 			<Form className="form">
@@ -29,7 +38,7 @@ export default function RegistrationForm() {
 						placeholder=" "
 					/>
 					<span className="descript">Name</span>
-					<ErrorMessage className={css.error}
+					<ErrorMessage className="error"
 						name='name'
 						component="span"
 						placeholder=" "
@@ -42,7 +51,7 @@ export default function RegistrationForm() {
 						placeholder=" "
 					/>
 					<span className="descript">Email</span>
-					<ErrorMessage className={css.error}
+					<ErrorMessage className="error"
 						name='email'
 						component="span" />
 				</label>
@@ -53,13 +62,14 @@ export default function RegistrationForm() {
 						placeholder=" "
 					/>
 					<span className="descript">Password</span>
-					<ErrorMessage className={css.error}
+					<ErrorMessage className="error"
 						name='password'
 						component="span" />
 				</label>
                         <button className='btn' type="submit">Sing Up</button>
 			</Form>
+		      </Formik>
+		</div>
 
-		</Formik>
 	)
 }

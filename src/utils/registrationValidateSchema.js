@@ -12,6 +12,7 @@ const registrationValidateSchema = Yup.object({
 		.matches(emailPattern, "Invalid email. Please enter an email in the format test@email.com"),
 	password: Yup.string()
 		.required("The 'Password' field cannot be empty.")
+	      .min(8, "'Password' must contain more than two characters."),
 });
 
 export default registrationValidateSchema;

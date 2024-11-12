@@ -1,7 +1,11 @@
 import css from "../RestrictedRoute/RestrictedRoute.module.css";
 import { Navigate } from 'react-router-dom';
-export default function RestrictedRoute({ isLogIn, children }) {
+import { useSelector } from "react-redux";
+import { selectLoggedIn } from "../../redux/auth/selectors";
+export default function RestrictedRoute({ component, redirectTo = "/" }) {
+	const selectedLoggedIn = (useSelector(selectLoggedIn));
+	 console.log('RestrictedRoute: selectedLoggedIn', selectedLoggedIn);
 	return (
-		isLogIn ? <Navigate to="/" /> : children
+		selectedLoggedIn ?  <Navigate to={redirectTo} replace />: component 
 	)
 }

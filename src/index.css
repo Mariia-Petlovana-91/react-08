@@ -1,8 +1,8 @@
 :root {
     --font-color: #fdfdfde1;
-    --secondary-color: #85bb21c4;
+    --secondary-color: #99d42ad7;
     --accent-color: #689415f3;
-    --background-color:#050505;
+    --background-color:#1d1b1b;
     --box-shadow: 0 6px 8px rgba(255, 255, 255, 0.589);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,7 +10,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #050505ee;
+  background-color: #1d1b1b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -64,17 +64,25 @@ input{
 }
 
 .form {
+  margin: auto;
   padding: 40px;
+  background-color: var(--background-color);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.block {
+  padding: 5px;
   position: relative;
-  max-width: 600px;
-  margin-left: auto;
+  width: auto;
   height: auto;
   border-radius: 5px;
   background: var(--background-color);
+  box-sizing: border-box;
 }
 
-.form:before,
-.form:after {
+.block:before,
+.block:after {
   content: '';
   position: absolute;
   left: -2px;
@@ -88,25 +96,12 @@ input{
   animation: steam 20s linear infinite;
 }
 
-.form:after {
+.block:after {
   filter: blur(5px);
 }
 
-@keyframes steam {
-  0% {
-    background-position: 0 0;
-  }
-
-  50% {
-    background-position: 100% 0;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
-}
-
 .btn {
+  padding: 3px;
   display: block;
   width: 100%;
   margin: auto;
@@ -121,12 +116,11 @@ input{
   border-bottom-right-radius: 45px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
-  transition: box-shadow 0.3s linear, background-color 0.3s;
+  transition: background-color 0.3s;
 }
 
 .btn:hover,
 .btn:focus {
-  box-shadow: var(--box-shadow);
   background-color: var(--secondary-color);
 }
 
@@ -172,4 +166,50 @@ input{
   font-size: 18px;
   font-weight: 600;
   color: #9b31319a;
+}
+
+.container {
+  padding: 2px;
+  background-color: var(--background-color);
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideUp 2s forwards;
+  align-items: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+@media (min-width:768px) {
+  .container {
+    grid-template-columns: 40% 60%;
+  }
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,4 +1,6 @@
 import css from './Modal.module.css';
+import clsx from 'clsx';
+
 import Modal from 'react-modal';
 import { IoCloseSharp } from "react-icons/io5";
 Modal.setAppElement('#root');
@@ -9,7 +11,7 @@ export default function AddModal({ isOpen,
   return (<>
     <Modal
       ariaHideApp={false}
-      className={css.modal}
+      className={clsx("block", css.modal)}
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Item Details"

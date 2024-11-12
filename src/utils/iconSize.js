@@ -1,7 +1,7 @@
 const iconSize = Object.freeze({
 	sm: 20,
 	m: 32,
-	xxxl:150,
+	l:48,
 });
 
 export default iconSize;

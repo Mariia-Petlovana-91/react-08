@@ -1,9 +1,14 @@
 import css from '../App/App.module.css';
 
-import { Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
-
 import { Toaster } from 'react-hot-toast';
+import { Routes, Route } from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+
+import { selectLoading } from "../redux/auth/selectors";
+import apiModule from "../redux/auth/slice";
+
+
 
 import RestrictedRoute from '../components/RestrictedRoute/RestrictedRoute';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
@@ -15,13 +20,19 @@ import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import ContactsPage from "../pages/ContactsPage/ContactsPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
-const isAuthenticated = false;
-
 export default function App() {
+  const dispatch = useDispatch();
+  const isLoad = useSelector(selectLoading);
+
+  useEffect(() => {
+    dispatch(apiModule.apiGetUser());
+    
+  }, [dispatch]);
+
   return (
     <>
-      <Layout isLogIn={isAuthenticated}>
-        {/* {isAuthenticated&&<Loader/>} */}
+      <Layout>
+        {isLoad&&<Loader/>}
         
         <Suspense>
           <Routes>
@@ -30,30 +41,23 @@ export default function App() {
             <Route 
               path="/contacts" 
               element={
-                <PrivateRoute isLogIn={isAuthenticated}>
-                  <ContactsPage />
-                </PrivateRoute>
+                <PrivateRoute component={<ContactsPage />}/>
               } 
             />
 
             <Route 
               path="/register" 
               element={
-                <RestrictedRoute isLogIn={isAuthenticated}>
-                  <RegistrationPage />
-                </RestrictedRoute>
+                <RestrictedRoute component={ <RegistrationPage />}/>
               } 
             />
 
             <Route 
               path="/login" 
               element={
-                <RestrictedRoute isLogIn={isAuthenticated}>
-                  <LoginPage />
-                </RestrictedRoute>
+                <RestrictedRoute component={ <LoginPage />}/>
               } 
             />
-
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
