@@ -24,7 +24,7 @@ export default function LoginForm() {
 
 	return (
 		<div className={clsx('container', 'block')}>
-		<img src="/src/img/login.jpg" alt="login photo" />
+		<img src="./../img/login.jpg" alt="login photo" />
 		<Formik initialValues={INITIAL__VALUE}
 			onSubmit={onSubmit}
 			validationSchema={logInValidateSchema}>

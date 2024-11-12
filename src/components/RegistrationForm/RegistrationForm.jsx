@@ -12,7 +12,6 @@ export default function RegistrationForm() {
 	const dispatch = useDispatch();
 
 	function onSubmit(data, actions) {
-		console.log(data);
 		dispatch(apiModule.apiRegistrationUser(data));
 		actions.resetForm();
 		return;
@@ -26,7 +25,7 @@ export default function RegistrationForm() {
 
 	return (
 		<div className={clsx('container', 'block')}>
-			<img src="/src/img/registration.jpg" alt="login photo" />
+			<img src="./../img/registration.jpg" alt="login photo" />
 			<Formik initialValues={INITIAL__VALUE}
 			onSubmit={onSubmit}
 			validationSchema={registrationValidateSchema}>

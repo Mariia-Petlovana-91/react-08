@@ -29,7 +29,7 @@ export default function HomePage () {
 						 Users can add, edit, delete and
 						 search contacts in a user-friendly interface.
 						</p>
-						<img className={css.img} src="/src/img/phone.jpg" alt="phone photo" />
+						<img className={css.img} src="./../img/phone.jpg" alt="phone photo" />
 						</div>
 					       <ul className={css.descriptList}>
 							<li className={css.descriptItem}>	

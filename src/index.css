@@ -69,6 +69,8 @@ input{
   background-color: var(--background-color);
   box-sizing: border-box;
   overflow: hidden;
+  /* min-height: 400px;
+  min-width: 320px; */
 }
 
 .block {
@@ -132,6 +134,7 @@ input{
 }
 
 .descript {
+  margin-bottom: 30px;
   position: absolute;
   top: 0px;
   font-family: inherit;
@@ -153,6 +156,7 @@ input{
   color: var(--font-color);
   width: 100%;
   outline: none;
+  margin-bottom: 30px;
 }
 
 .input:focus+.descript,
