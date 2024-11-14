@@ -1,14 +1,14 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 
-import apiModule from "../../redux/auth/slice";
+import {apiRegistrationUser} from "../../redux/auth/slice";
 import registrationValidateSchema from "../../utils/registrationValidateSchema";
 
 export default function RegistrationForm() {
 	const dispatch = useDispatch();
 
 	function onSubmit(data, actions) {
-		dispatch(apiModule.apiRegistrationUser(data));
+		dispatch(apiRegistrationUser(data));
 		actions.resetForm();
 		return;
 	}

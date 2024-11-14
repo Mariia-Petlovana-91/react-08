@@ -11,17 +11,16 @@ import ContactList from "../../components/ContactList/ContactList";
 import NotFound from "../../components/NotFound/NotFound";
 import Modal from "../../components/Modal/Modal";
 
-import apiModule from "../../redux/contacts/slice";
-import { selectFilteredContacts,error } from "../../redux/contacts/selectors";
+import {apiGetContacts} from "../../redux/contacts/slice";
+import { selectFilteredContacts } from "../../redux/contacts/selectors";
 
 export default function ContactsPage() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const isError = useSelector(error);
   const isContacts = useSelector(selectFilteredContacts);
 
     useEffect(() => {
-      dispatch(apiModule.apiGetContacts());
+      dispatch(apiGetContacts());
   }, [dispatch]);
 
   function openModal() {

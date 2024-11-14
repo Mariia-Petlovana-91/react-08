@@ -87,8 +87,9 @@ const authSlice = createSlice({
 
 const authReducer = authSlice.reducer;
 
-export default {
-	authReducer,
+export default authReducer;
+
+export {
 	apiRegistrationUser,
 	apiLoginUser,
 	apiLogOutUser,

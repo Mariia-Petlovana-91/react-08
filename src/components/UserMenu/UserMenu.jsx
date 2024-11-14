@@ -6,7 +6,7 @@ import { BiLogOutCircle } from "react-icons/bi";
 
 import { useDispatch,useSelector } from "react-redux";
 
-import apiModule from "../../redux/auth/slice";
+import {apiLogOutUser} from "../../redux/auth/slice";
 import { selectUser } from "../../redux/auth/selectors";
 
 export default function UserMenu() {
@@ -23,7 +23,7 @@ export default function UserMenu() {
 			</p>
 			<button type="button"
 				className={css.btn}
-				onClick={()=>dispatch(apiModule.apiLogOutUser())}
+				onClick={()=>dispatch(apiLogOutUser())}
 			>
 				<BiLogOutCircle className={css.icon}
 				 size={iconSize.m}

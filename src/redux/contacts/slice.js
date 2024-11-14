@@ -24,6 +24,7 @@ const contactsSlice = createSlice({
 			state.error = null
 		})
 			.addCase(apiGetContacts.fulfilled, (state, action) => {
+				console.log("Updating contacts in state:", action.payload);
 			state.isLoading = false,
 			state.contacts = action.payload
 		})
@@ -61,8 +62,8 @@ const contactsSlice = createSlice({
 
 const contactsReducer = contactsSlice.reducer;
 
-export default {
-	contactsReducer,
+export default contactsReducer;
+export {
 	apiGetContacts,
 	apiPostContact,
 	apiDeleteContact

@@ -1,14 +1,14 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 
-import apiModule from "../../redux/auth/slice";
+import {apiLoginUser} from "../../redux/auth/slice";
 import logInValidateSchema from "../../utils/loginValidateSchema";
 
 export default function LoginForm() {
 	const dispatch = useDispatch();
 
 	function onSubmit(data, actions) {
-		dispatch(apiModule.apiLoginUser(data));
+		dispatch(apiLoginUser(data));
 		actions.resetForm();
 		return;
 	}

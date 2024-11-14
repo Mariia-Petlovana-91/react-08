@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 
 import addContactValidataSchema from "../../utils/addContactValidataSchema";
-import apiModule from "../../redux/contacts/slice";
+import {apiPostContact} from "../../redux/contacts/slice";
 
 export default function ContactForm({setModalIsOpen}) {
 	
@@ -12,7 +12,7 @@ export default function ContactForm({setModalIsOpen}) {
 	
 	
 	function onSubmit(data, actions) {
-		dispatch(apiModule.apiPostContact(data));
+		dispatch(apiPostContact(data));
 		actions.resetForm();
 		setModalIsOpen();
 		return;

@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { selectAuthLoading } from "../redux/auth/selectors";
 import { selectContactLoading } from '../redux/contacts/selectors';
-import apiModule from "../redux/auth/slice";
+import {apiGetUser} from "../redux/auth/slice";
 
 const RestrictedRoute = lazy(() => import("../components/RestrictedRoute/RestrictedRoute"));
 const PrivateRoute = lazy(() => import("../components/PrivateRoute/PrivateRoute"));
@@ -26,7 +26,7 @@ export default function App() {
   const isLoadContacts = useSelector(selectContactLoading);
 
   useEffect(() => {
-    dispatch(apiModule.apiGetUser());
+    dispatch(apiGetUser());
     
   }, [dispatch]);
 

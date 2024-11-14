@@ -18,15 +18,15 @@ const authConfig = {
     whitelist: ["token"]
 };
 
-import authModule from "./auth/slice";
-import  contactsModule from "./contacts/slice";
-import filtersModule  from "./filters/slice";
+import authReducer from "./auth/slice";
+import  filtersReducer from "./contacts/slice";
+import contactsReducer  from "./filters/slice";
 
 export const store = configureStore({
 	reducer: {
-		authData: persistReducer(authConfig, authModule.authReducer),
-    filtersData: filtersModule.filtersReducer,
-    contactsData : contactsModule.contactsReducer
+		authData: persistReducer(authConfig, authReducer),
+    filtersData: filtersReducer,
+    contactsData : contactsReducer
 	},
 	middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware({

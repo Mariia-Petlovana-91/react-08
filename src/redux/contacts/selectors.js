@@ -8,12 +8,12 @@ export const error = (state) => state.contactsData.error;
 export const selectFilteredContacts = createSelector(
     [selectContact, selectFilter],
     (contacts, filter) => {
+        console.log("Contacts in selector:", contacts); // має показати масив контактів
         if (Array.isArray(contacts)) {
-		return  contacts.filter((contact) =>
-            contact.name.toLowerCase().includes(filter.toLowerCase().trim())
-        );
+            return contacts.filter((contact) =>
+                contact.name.toLowerCase().includes(filter.toLowerCase().trim())
+            );
         }
-	    return;
+        return [];
     }
 );
-

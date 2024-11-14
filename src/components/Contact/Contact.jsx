@@ -5,7 +5,7 @@ import { FaPhone } from "react-icons/fa";
 import iconSize from '../../utils/iconSize';
 import { useDispatch } from 'react-redux';
 
-import apiModule from "../../redux/contacts/slice";
+import {apiDeleteContact} from "../../redux/contacts/slice";
 
 export default function Contact({ name = "Ім'я відсутнє", number = "Номер відсутній", id }) {
 	const dispatch = useDispatch(); 
@@ -24,7 +24,7 @@ export default function Contact({ name = "Ім'я відсутнє", number = "�
 			</div>
 			<button className={css.btn}
 				type='button'
-				onClick={() => dispatch(apiModule.apiDeleteContact(id))}>
+				onClick={() => dispatch(apiDeleteContact(id))}>
 				<RiDeleteBin2Line className={css.icon}
 				 size={iconSize.m}
 				/>
