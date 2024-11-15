@@ -102,7 +102,7 @@ input{
   grid-template-columns: 1fr;
   opacity: 0;
   transform: translateY(100%);
-  animation: slideUp 2s forwards;
+  animation: slideUp 1s forwards;
   align-items: center;
   overflow: hidden;
 }

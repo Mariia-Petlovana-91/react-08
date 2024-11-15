@@ -12,7 +12,7 @@
 	margin-bottom: 20px;
 	opacity: 0;
 	transform: translateX(100%);
-	animation: slideRight 2s forwards;
+	animation: slideRight 1s forwards;
 }
 
 .textHero{
@@ -22,7 +22,7 @@
 	margin-bottom: 20px;
 	opacity: 0;
 	transform: translateX(-100%);
-	animation: slideLeft 2s forwards;
+	animation: slideLeft 1s forwards;
 }
 
 .titleLetter{
