@@ -1,6 +1,10 @@
-.userMenu{
+.menu{
 	display: flex;
 	align-items: center;
+}
+
+.greetingBlock{
+	display: none;
 }
 
 .icon{
@@ -38,4 +42,11 @@
 .btn:hover,
 .btn:focus{
 	border: 1px solid var(--accent-color);
+}
+
+@media  (min-width:768px){
+    .greetingBlock{
+	display: flex;
+	align-items: center;
+    }
 }

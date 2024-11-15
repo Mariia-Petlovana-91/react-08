@@ -14,18 +14,21 @@ export default function UserMenu() {
 	const userName = useSelector(selectUser)
 	
 	return (
-		<div className={css.userMenu}>
-			< FaRegSmile className={css.icon}
+		<div className={css.menu}>
+			<div className={css.greetingBlock}>
+                  < FaRegSmile className={css.icon}
 				size={iconSize.m}
 			/>
 			<p className={css.text}>Hello,
 				<span className={css.userName}>{userName.name}</span>
 			</p>
+			</div>
+
 			<button type="button"
-				className={css.btn}
+				className="btnIcon"
 				onClick={()=>dispatch(apiLogOutUser())}
 			>
-				<BiLogOutCircle className={css.icon}
+				<BiLogOutCircle className="iconBtn"
 				 size={iconSize.m}
 				/>
 			</button>

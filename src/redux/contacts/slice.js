@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import apiModule from "../contacts/operations";
+import { apiLogOutUser } from "../auth/slice";
 
 const {
 	apiGetContacts,
@@ -55,6 +56,10 @@ const contactsSlice = createSlice({
 		     .addCase(apiDeleteContact.rejected, (state, action) => {
 			      state.isLoading = false,
 			      state.error= action.payload
+		     })
+			.addCase(apiLogOutUser.fulfilled, (state) => {
+			     state.contacts = null,
+				state.error = null
 		})
 		
 	}

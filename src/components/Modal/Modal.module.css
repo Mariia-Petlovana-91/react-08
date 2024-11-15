@@ -10,7 +10,7 @@
 }
 
 .modalOverlay {
-	background-color: var(--background-color);
+	background-color: rgba(0, 0, 0, 0.664);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -20,30 +20,15 @@
 
 .modalCloseBtn{
 	margin-left: auto;
-	display: inline-block;
 	margin-right: 10px;
-	background-color: transparent;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-      padding: 3px;
-	border-radius: 5px;
-	border: 1px solid transparent;
-	transition:border-color  0.3s linear;
 }
 
 .modalCloseEl{
 	padding-top: 10px;
 }
 
-.modalCloseBtn:hover,
-.modalCloseBtn:focus{
-	border-color: var(--accent-color);
-}
-
 .icon{
 	display: block;
-	fill: var(--accent-color);
 }
 
 

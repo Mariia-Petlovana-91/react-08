@@ -22,9 +22,9 @@ export default function AddModal({ isOpen,
         <button
           type='button'
           onClick={onRequestClose}
-          className={css.modalCloseBtn}
+          className={clsx("btnIcon", css.modalCloseBtn)}
         >
-          <IoCloseSharp className={css.icon}
+          <IoCloseSharp className={clsx("iconBtn")}
             size={iconSize.m}
           />
         </button>

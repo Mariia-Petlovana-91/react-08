@@ -1,5 +1,5 @@
 const iconSize = Object.freeze({
-	sm: 20,
+	sm: 24,
 	m: 32,
 	l:48,
 });

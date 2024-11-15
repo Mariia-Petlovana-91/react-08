@@ -25,24 +25,3 @@
 	margin-right: 10px;
 }
 
-.btn {
-	max-height: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: transparent;
-	border: 1px solid transparent;
-	border-radius: 5px;
-	padding: 2px;
-	transition: border-color 0.3s linear;
-}
-
-.btn:hover,
-.btn:focus {
-	border: 1px solid var(--accent-color);
-}
-
-.icon{
-	fill: var(--accent-color);
-}
-

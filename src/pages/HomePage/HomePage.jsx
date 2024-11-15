@@ -22,14 +22,14 @@ export default function HomePage () {
 					      />
 					</h1>
 					<div >
-						<div className="container">
+						<div className={clsx('container', css.containerHero)}>
                                      <p className={css.textHero}>
 						 Web application
 					       for saving and managing contacts.
 						 Users can add, edit, delete and
 						 search contacts in a user-friendly interface.
 						</p>
-						<img className={css.img} src="/img/phone.jpg" alt="phone photo" />
+						<img className={css.img} width="100%" height="100%" src="/img/phone.jpg" alt="phone photo" />
 						</div>
 					       <ul className={css.descriptList}>
 							<li className={css.descriptItem}>	

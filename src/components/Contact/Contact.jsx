@@ -22,10 +22,10 @@ export default function Contact({ name = "Ім'я відсутнє", number = "�
 						size={iconSize.sm} />{number}
 				</p>
 			</div>
-			<button className={css.btn}
+			<button className="btnIcon"
 				type='button'
 				onClick={() => dispatch(apiDeleteContact(id))}>
-				<RiDeleteBin2Line className={css.icon}
+				<RiDeleteBin2Line className="iconBtn"
 				 size={iconSize.m}
 				/>
 			</button>

@@ -19,8 +19,8 @@ const authConfig = {
 };
 
 import authReducer from "./auth/slice";
-import  filtersReducer from "./contacts/slice";
-import contactsReducer  from "./filters/slice";
+import  filtersReducer from "./filters/slice";
+import contactsReducer  from "./contacts/slice";
 
 export const store = configureStore({
 	reducer: {

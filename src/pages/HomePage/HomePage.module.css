@@ -2,8 +2,12 @@
 	padding: 20px;
 }
 
+.containerHero{
+	margin-bottom: 24px;
+}
+
 .title{
-	font-size:48px;
+	font-size:32px;
 	font-weight:900;
 	margin-bottom: 20px;
 	opacity: 0;
@@ -12,7 +16,7 @@
 }
 
 .textHero{
-	font-size: 32px;
+	font-size: 24px;
 	font-weight: 600;
 	font-weight: 500;
 	margin-bottom: 20px;
@@ -55,7 +59,7 @@
 	display: flex;
 	align-items: baseline;
 	color: var(--accent-color);
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 600;
 	margin-bottom: 15px;
 }
@@ -86,7 +90,7 @@
 }
 
 .text{
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .icon{
@@ -143,8 +147,11 @@
 }
 
 @media (min-width:768px) {
+	.containerHero {
+			margin-bottom: 0px;
+		}
 	.title{
-		font-size: 64px;
+		font-size: 48px;
 	}
 
 	.textHero{
@@ -152,10 +159,10 @@
 	}
 
 	.descriptTitle{
-		font-size: 32px;
+		font-size: 24px;
 	}
 
 	.text{
-		font-size: 24px;
+		font-size: 20px;
 	}
 }

@@ -92,7 +92,19 @@ input{
 }
 
 .block:after {
-  filter: blur(5px);
+  filter: blur(7px);
+}
+
+.container {
+  background-color: transparent;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideUp 2s forwards;
+  align-items: center;
+  overflow: hidden;
 }
 
 .btn {
@@ -164,16 +176,25 @@ input{
   color: #9b31319a;
 }
 
-.container {
-  background-color: transparent;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr;
-  opacity: 0;
-  transform: translateY(100%);
-  animation: slideUp 2s forwards;
+.btnIcon{
+  max-height: 40px;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  overflow: hidden;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 2px;
+  transition: border-color 0.3s linear;
+}
+
+.btnIcon:hover,
+.btnIcon:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.iconBtn {
+  fill: var(--accent-color);
 }
 
 @media (min-width:768px) {
