@@ -147,9 +147,6 @@
 }
 
 @media (min-width:768px) {
-	.containerHero {
-			margin-bottom: 0px;
-		}
 	.title{
 		font-size: 48px;
 	}

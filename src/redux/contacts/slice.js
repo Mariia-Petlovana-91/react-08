@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import apiModule from "../contacts/operations";
-import { apiLogOutUser } from "../auth/operations";
+import apiAuthModule from "../auth/operations";
+
+const { apiLogOutUser } = apiAuthModule;
 
 const {
 	apiGetContacts,
