@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import apiModule from "../auth/operations";
+import apBBBiModule from "../auth/operations";
 
 const {
 	apiRegistrationUser,
 	apiLoginUser,
 	apiLogOutUser,
 	apiGetUser
-} = apiModule;
+} = apBBBiModule;
 
 
 const INITIAL_STATE = {
