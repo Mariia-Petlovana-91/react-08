@@ -19,7 +19,7 @@ export default function SearchBox() {
 				name='search'
 				value={selectNameFilter}
 				onChange={onChangeValue}
-				placeholder='Find contacts by name'
+				placeholder='Find by name'
 			/>
 		</div>
 	)
