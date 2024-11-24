@@ -142,7 +142,7 @@ input{
   position: absolute;
   top: 0px;
   font-family: inherit;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 16px;
   letter-spacing: 0.03em;
@@ -151,7 +151,7 @@ input{
 }
 
 .input {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
   padding: 8px 10px;
   background-color: transparent;
@@ -171,7 +171,7 @@ input{
 }
 
 .error{
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   color: #9b31319a;
 }
@@ -201,6 +201,9 @@ input{
   .container {
     grid-template-columns: 40% 60%;
   }
+    .input{
+      font-size: 24px;
+    }
 }
 
 @keyframes steam {

@@ -57,7 +57,8 @@
 
 .descriptTitle{
 	display: flex;
-	align-items: baseline;
+	
+	align-items:center;
 	color: var(--accent-color);
 	font-size: 18px;
 	font-weight: 600;

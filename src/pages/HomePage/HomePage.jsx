@@ -4,7 +4,6 @@ import clsx from "clsx";
 import iconSize from "../../utils/iconSize";
 import { FaPhone } from "react-icons/fa";
 import { SiBasicattentiontoken } from "react-icons/si";
-import { CgCheck } from "react-icons/cg";
 
 import Section from "../../components/Section/Section";
 
@@ -42,22 +41,14 @@ export default function HomePage () {
 								</h2>
 								<ul className={css.list}>
 									<li className={css.item}>
-										<CgCheck
-											className={css.listIcon}
-										      size={iconSize.sm}
-										/>
 										<p className={css.text}>
 											User registration and
 										      authorization:
-											ensures the privacy of each user's contacts.
+											ensures the privacy of each users contacts.
 										</p>
 										
 									</li>
 									<li className={css.item}>
-										<CgCheck
-											className={css.listIcon}
-										      size={iconSize.sm}
-										/>
 										<p className={css.text}>
 											Adding contacts: ability
 											to store name and
@@ -66,10 +57,6 @@ export default function HomePage () {
 										
 									</li>
 									<li className={css.item}>
-										<CgCheck
-											className={css.listIcon}
-										      size={iconSize.sm}
-										/>
 										<p className={css.text}>
 											Edit and delete: manage
 										      contacts with the ability
@@ -78,10 +65,6 @@ export default function HomePage () {
 										
 									</li>
 									<li className={css.item}>
-										<CgCheck
-											className={css.listIcon}
-										      size={iconSize.sm}
-										/>
 										<p className={css.text}>
 											Search by Name:
 										      Quickly search for
@@ -101,28 +84,16 @@ export default function HomePage () {
 								</h2>
 								<ul className={css.list}>
 									<li className={css.item}>
-										<CgCheck
-											className={css.listIcon}
-										      size={iconSize.sm}
-										/>
 										<p className={css.text}>
 											Simple interface and ease of use.
 										</p>	
 									</li>
 									<li className={css.item}>
-										<CgCheck
-											className={css.listIcon}
-										      size={iconSize.sm}
-										/>
 										<p className={css.text}>
 											Reliable data protection and privacy for each user.
 										</p>	
 									</li>
 									<li className={css.item}>
-										<CgCheck
-											className={css.listIcon}
-										      size={iconSize.sm}
-										/>
 										<p className={css.text}>
 											Instant access to contacts from any device connected to the Internet.
 										</p>

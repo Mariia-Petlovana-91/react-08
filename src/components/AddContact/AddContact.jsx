@@ -2,7 +2,7 @@ import css from './AddContact.module.css';
 import  iconSize  from '../../utils/iconSize';
 import { IoPersonAdd } from "react-icons/io5";
 
-export default function ({isOpen}) {
+export default function AddContact({isOpen}) {
 	return (<>
 		<button className={css.userBtn}
 			type='button'
